@@ -124,10 +124,15 @@ export class Car {
         if (speed <= 0) {
             return `Invalid speed. Please provide a positive number.`;
         }
+        if (this.fuelLevel < 3) {
+            return `Not enough fuel to start driving. Please refuel.`;
+        }
         this.speed = speed;
-        return `You are now driving at ${this.speed} km/h.`;
+        this.fuelLevel -= 3; // Consume 3 liters of fuel when starting to drive
+        return `You are now driving at ${this.speed} km/h. Fuel level: ${this.fuelLevel.toFixed(2)} liters.`;
     }
 }
+
 
 
 
